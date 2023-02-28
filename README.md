@@ -2,7 +2,10 @@
 This app spins and golang app and redis in local
 
 ## Setup in local
-Run in local ```sh start-local.sh```
+Run in local 
+```
+./start-local.sh
+```
 check out server running at [http://localhost:8080/healthcheck](http://localhost:8080/healthcheck)
 
 ##

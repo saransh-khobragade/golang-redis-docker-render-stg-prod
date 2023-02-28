@@ -10,11 +10,20 @@ import (
 	"github.com/saransh-khobragade/golang-redis/cache"
 )
 
-var (
-	redisCache = cache.NewRedisCache(os.Getenv("REDIS_CONNECTION_STRING"), 0, 1)
-)
+var REDIS_DB int = 1
+
+func getRedisDB() {
+
+}
+
+var ()
 
 func main() {
+	REDIS_DB := 0
+	if os.Getenv("GOLANG_ENV") == "production" {
+		REDIS_DB = 1
+	}
+	redisCache := cache.NewRedisCache(os.Getenv("REDIS_CONNECTION_STRING"), REDIS_DB, 1)
 	r := gin.Default()
 
 	r.GET("/healthcheck", func(ctx *gin.Context) {
